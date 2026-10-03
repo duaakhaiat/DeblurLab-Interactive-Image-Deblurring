@@ -1,0 +1,87 @@
+Image degradation due to blur is a common problem in computer vision systems. Blur can be caused by camera motion, defocus, or environmental conditions. The goal of this simulation is to design a system capable of restoring image quality by reducing blur using a combination of mathematical modeling and machine learning techniques.
+
+This work is based on the use of the Laplace Transform to simplify the mathematical treatment of the blur process and enable efficient image reconstruction.
+
+📌 2. Problem Formulation
+
+A blurred image can be mathematically modeled as:
+
+g(x,y)=f(x,y)∗h(x,y)
+
+Where:
+
+f(x,y): original (sharp) image
+h(x,y): blur kernel (Point Spread Function)
+g(x,y): observed blurred image
+∗: convolution operation
+
+The objective is to recover f(x,y) from the observed image g(x,y).
+
+📌 3. Transformation to Laplace Domain
+
+To simplify the convolution operation, the Laplace Transform is applied.
+
+Using the convolution property:
+
+G(s)=F(s)⋅H(s)
+
+This transformation converts the problem from a convolution into a simple multiplication.
+
+📌 4. Image Reconstruction Principle
+
+To retrieve the original image, we compute:
+
+F(s)=
+H(s)
+G(s)
+	​
+
+
+Then, an inverse Laplace transform is applied to obtain the restored image in the spatial domain.
+
+📌 5. Role of Machine Learning
+
+In practical scenarios, the blur kernel H(s) is unknown. To address this, a machine learning model is integrated into the system.
+
+The model is trained to:
+
+Estimate the blur kernel h(x,y), or
+Directly predict the restored image
+
+This allows the system to adapt to different types of blur.
+
+📌 6. Simulation Workflow
+
+The simulation consists of the following steps:
+
+🔹 Step 1: Input
+A blurred image is provided to the system
+🔹 Step 2: Transformation
+The image is transformed into the Laplace domain
+🔹 Step 3: ML Estimation
+A trained model predicts the blur characteristics
+🔹 Step 4: Deconvolution
+The system computes:
+F(s)=
+H(s)
+G(s)
+	​
+
+🔹 Step 5: Reconstruction
+Inverse Laplace transform is applied
+Output: enhanced image with reduced blur
+📌 7. Practical Considerations
+
+Although the Laplace Transform provides a strong theoretical framework, in practical image processing systems, the Fourier Transform is often preferred due to its numerical stability and efficiency with discrete data.
+
+📌 8. Expected Results
+
+The simulation aims to:
+
+Improve image sharpness
+Restore lost details
+Reduce blur artifacts
+Demonstrate the effectiveness of combining mathematical transforms with machine learning
+📌 9. Conclusion
+
+This system demonstrates how combining classical mathematical tools like the Laplace Transform with modern machine learning techniques can lead to powerful image restoration methods. The approach transforms a complex convolution problem into a simpler algebraic one, enabling efficient and intelligent deblurring.
